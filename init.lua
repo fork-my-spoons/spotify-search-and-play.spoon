@@ -5,7 +5,7 @@ obj.__index = obj
 obj.name = "spotify-search-and-play"
 obj.version = "1.0"
 obj.author = "Pavel Makhov"
-obj.homepage = ""
+obj.homepage = "https://github.com/fork-my-spoons/spotify-search-and-play.spoon"
 obj.license = "MIT - https://opensource.org/licenses/MIT"
 
 obj.refresh_token_req_header = nil
@@ -18,7 +18,7 @@ obj.iconPath = hs.spoons.resourcePath("icons")
 
 local user_icon = hs.styledtext.new(' ', { font = {name = 'feather', size = 12 }})
 local number_icon = hs.styledtext.new(' ', { font = {name = 'feather', size = 12 }})
-
+local track_icon = hs.styledtext.new(' ', { font = {name = 'feather', size = 12 }})
 
 
 function obj:refresh_token()
@@ -26,9 +26,6 @@ function obj:refresh_token()
         'grant_type=client_credentials', 
         { Authorization = 'Basic ' .. self.refresh_token_req_header})
     
-    -- print('Refresh token status: ' .. status)
-    -- print('Refresh token body: ' .. body)
-
     local response = hs.json.decode(body)
     self.token = response.access_token
     self.token_expires_at = os.time() + response.expires_in
@@ -78,7 +75,7 @@ function obj:build_list(body)
             table.insert(result, {
                 image = hs.image.imageFromURL(playlist.images[1].url),
                 text = playlist.name,
-                subText = 'by ' .. playlist.owner.display_name,
+                subText = track_icon .. playlist.tracks.total .. '   by ' .. playlist.owner.display_name,
                 spotify_id = playlist.uri
             })
         end
@@ -108,21 +105,10 @@ function obj:queryChangedCallback()
     if string.len(str) < 3 then return self.chooser end
 
     local res = {}
-    local jira_url = 'https://api.spotify.com/v1/search?q=' .. hs.http.encodeForQuery(str) .. '&type=' .. self.item_type_to_search
-    status, body = hs.http.get(jira_url, self:get_auth_header())
-    -- print(status)
-    -- print(body)
+    local url = 'https://api.spotify.com/v1/search?q=' .. hs.http.encodeForQuery(str) .. '&type=' .. self.item_type_to_search
+    status, body = hs.http.get(url, self:get_auth_header())
+
     local res = self:build_list(body)
-    -- local issues = hs.json.decode(body).tracks.items
-    -- for _, issue in ipairs(issues) do
-    --     -- print(issue.name)
-    --     table.insert(res, {
-    --         image = hs.image.imageFromURL(issue.album.images[3].url),
-    --       text = issue.name,
-    --       subText = issue.album.name .. '   ' .. issue.artists[1].name,
-    --       spotify_id = issue.uri
-    --     })
-    -- end
 
     return self.chooser:choices(res)
 end
@@ -136,7 +122,6 @@ function obj:init()
     end)
 
     self.chooser:searchSubText(true)
-    -- obj.chooser:choices({})
     
     self.chooser:queryChangedCallback(hs.fnutils.partial(self.queryChangedCallbackDelayed, self))
     self.chooser:hideCallback(function() 
