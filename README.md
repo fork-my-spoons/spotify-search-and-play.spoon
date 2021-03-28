@@ -1,1 +1,3 @@
-# spotify-search-and-play.spoon
+# Spotify Search and Play
+
+![screenrecord](./screenshots/screenrecord.gif)
