@@ -5,7 +5,7 @@ obj.__index = obj
 obj.name = "spotify-search-and-play"
 obj.version = "1.0"
 obj.author = "Pavel Makhov"
-obj.homepage = "https://github.com/fork-my-spoons/spotify-search-and-play.spoon"
+obj.homepage = "https://fork-my-spoons.github.io/"
 obj.license = "MIT - https://opensource.org/licenses/MIT"
 
 obj.refresh_token_req_header = nil
@@ -13,7 +13,7 @@ obj.token = nil
 obj.token_expires_at = nil
 obj.choose = nil
 obj.delayed_timer = nil
-obj.item_type_to_search = 'track'
+obj.item_type_to_search = nil
 obj.iconPath = hs.spoons.resourcePath("icons")
 
 local user_icon = hs.styledtext.new(' ', { font = {name = 'feather', size = 12 }})
@@ -134,18 +134,9 @@ function obj:init()
     t = require("hs.webview.toolbar")
     a = t.new("myConsole", {
             { id = "album", selectable = true, image = hs.image.imageFromPath(obj.iconPath ..  '/compact-disc.png'):template(true)},
-            -- { id = "NSToolbarSpaceItem" },
             { id = "artist", selectable = true, image = hs.image.imageFromPath(obj.iconPath ..  '/microphone.png'):template(true)},
-            -- { id = "NSToolbarSpaceItem" },
             { id = "playlist", selectable = true, image = hs.image.imageFromPath(obj.iconPath ..  '/playlist.png'):template(true)},
-            -- { id = "NSToolbarSpaceItem" },
             { id = "track", selectable = true, image = hs.image.imageFromPath(obj.iconPath ..  '/musical-note.png'):template(true)},
-            -- { id = "notShown", default = false, image = hs.image.imageFromName("NSBonjour") },
-            -- { id = "navGroup", label = "Navigation", groupMembers = { "navLeft", "navRight" }},
-            -- { id = "navLeft", image = hs.image.imageFromName("NSGoLeftTemplate"), allowedAlone = false },
-            -- { id = "navRight", image = hs.image.imageFromName("NSGoRightTemplate"), allowedAlone = false },
-            -- { id = "NSToolbarFlexibleSpaceItem" },
-            -- { id = "cust", label = "customize", fn = function(t, w, i) t:customizePanel() end, image = hs.image.imageFromName("NSAdvanced") }
         }):canCustomize(true)
           :autosaves(true)
           :selectedItem("track")
@@ -165,7 +156,7 @@ end
 
 function obj:setup(args)
     self.refresh_token_req_header = hs.base64.encode(args.client_id .. ':' .. args.secret)
-    -- print('refresh_token_req_header = ' .. self.refresh_token_req_header)
+    self.item_type_to_search = args.default_search_type or 'track'
 end
 
 function obj:show()
