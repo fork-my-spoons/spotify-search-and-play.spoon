@@ -2,7 +2,7 @@
 
 A spotlight-like search for spotify, allow searching albums, artists, playlists and tracks and playing the selected item on Spotify client for macOS:
 
-<img alt="screenrecord" src="https://github.com/fork-my-spoons/spotify-search-and-play.spoon/blob/main/screenshots/screenrecord.gif">
+<img alt="screenrecord" src="https://github.com/fork-my-spoons/spotify-search-and-play.spoon/raw/main/screenshots/screenrecord.gif">
 
 Note that after restarting hammerspoon the default search type will be reset to tracks.
 
