@@ -13,7 +13,7 @@ This app uses Spotify's search API, so you need to create a developer account in
  - install [Hammerspoon](http://www.hammerspoon.org/) - a powerfull automation tool for OS X
    - Manually:
 
-      Download the [latest release], and drag Hammerspoon.app from your Downloads folder to Applications.
+      Download the [latest release](https://github.com/Hammerspoon/hammerspoon/releases/tag/0.9.87), and drag Hammerspoon.app from your Downloads folder to Applications.
    - Homebrew:
 
       ```brew install hammerspoon --cask```
