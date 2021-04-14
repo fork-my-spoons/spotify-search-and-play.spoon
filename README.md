@@ -1,5 +1,17 @@
 # Spotify Search and Play
 
+<p align="center">
+   <a href="https://github.com/fork-my-spoons/spotify-search-and-play.spoon/issues">
+    <img alt="GitHub issues" src="https://img.shields.io/github/issues/fork-my-spoons/spotify-search-and-play.spoon">
+  </a>
+  <a href="https://github.com/fork-my-spoons/github-activity.spoon/releases">
+    <img alt="GitHub all releases" src="https://img.shields.io/github/downloads/fork-my-spoons/spotify-search-and-play.spoon/total">
+  </a>
+  <a href="https://github.com/fork-my-spoons/spotify-search-and-play.spoon/releases">
+   <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/fork-my-spoons/spotify-search-and-play.spoon">
+  </a>
+</p>
+
 A spotlight-like search for spotify, allow searching albums, artists, playlists and tracks and playing the selected item on Spotify client for macOS:
 
 <img alt="screenrecord" src="https://github.com/fork-my-spoons/spotify-search-and-play.spoon/raw/main/screenshots/screenrecord.gif">
