@@ -1,8 +1,20 @@
 # Spotify Search and Play
 
+<p align="center">
+   <a href="https://github.com/fork-my-spoons/spotify-search-and-play.spoon/issues">
+    <img alt="GitHub issues" src="https://img.shields.io/github/issues/fork-my-spoons/spotify-search-and-play.spoon">
+  </a>
+  <a href="https://github.com/fork-my-spoons/github-activity.spoon/releases">
+    <img alt="GitHub all releases" src="https://img.shields.io/github/downloads/fork-my-spoons/spotify-search-and-play.spoon/total">
+  </a>
+  <a href="https://github.com/fork-my-spoons/spotify-search-and-play.spoon/releases">
+   <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/fork-my-spoons/spotify-search-and-play.spoon">
+  </a>
+</p>
+
 A spotlight-like search for spotify, allow searching albums, artists, playlists and tracks and playing the selected item on Spotify client for macOS:
 
-![screenrecord](./screenshots/screenrecord.gif)
+<img alt="screenrecord" src="https://github.com/fork-my-spoons/spotify-search-and-play.spoon/raw/main/screenshots/screenrecord.gif">
 
 Note that after restarting hammerspoon the default search type will be reset to tracks.
 
@@ -13,12 +25,12 @@ This app uses Spotify's search API, so you need to create a developer account in
  - install [Hammerspoon](http://www.hammerspoon.org/) - a powerfull automation tool for OS X
    - Manually:
 
-      Download the [latest release], and drag Hammerspoon.app from your Downloads folder to Applications.
+      Download the [latest release](https://github.com/Hammerspoon/hammerspoon/releases/tag/0.9.87), and drag Hammerspoon.app from your Downloads folder to Applications.
    - Homebrew:
 
       ```brew install hammerspoon --cask```
 
- - download [spotify-search-and-play.spoon](https://github.com/fork-my-spoons/gitlab-merge-requests.spoon/raw/master/gitlab-merge-requests.spoon.zip), unzip and double click on a .spoon file. It will be installed under `~/.hammerspoon/Spoons` folder.
+ - download [spotify-search-and-play.spoon](https://github.com/fork-my-spoons/spotify-search-and-play.spoon/releases/latest/download/spotify-search-and-play.spoon.zip), unzip and double click on a .spoon file. It will be installed under `~/.hammerspoon/Spoons` folder.
  
  - open ~/.hammerspoon/init.lua and add the following snippet, adding your parameters:
 
@@ -30,7 +42,7 @@ spoon['spotify-search-and-play']:setup({
   secret = '<your secret>'
 })
 spoon['spotify-search-and-play']:bindHotkeys({
-    show={{"alt"}, "S"}}
+    show={ {"alt"}, "S"}}
 )
 ```
 
