@@ -12,11 +12,9 @@
   </a>
 </p>
 
-A spotlight-like search for spotify, allow searching albums, artists, playlists and tracks and playing the selected item on Spotify client for macOS:
+A spotlight-like search for spotify, allows searching albums, artists, playlists and tracks and playing the selected item on Spotify client for macOS:
 
 <img alt="screenrecord" src="https://github.com/fork-my-spoons/spotify-search-and-play.spoon/raw/main/screenshots/screenrecord.gif">
-
-Note that after restarting hammerspoon the default search type will be reset to tracks.
 
 # Installation
 
@@ -25,7 +23,7 @@ This app uses Spotify's search API, so you need to create a developer account in
  - install [Hammerspoon](http://www.hammerspoon.org/) - a powerfull automation tool for OS X
    - Manually:
 
-      Download the [latest release](https://github.com/Hammerspoon/hammerspoon/releases/tag/0.9.87), and drag Hammerspoon.app from your Downloads folder to Applications.
+      Download the [latest release](hhttps://github.com/Hammerspoon/hammerspoon/releases/latest), and drag Hammerspoon.app from your Downloads folder to Applications.
    - Homebrew:
 
       ```brew install hammerspoon --cask```

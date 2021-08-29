@@ -139,9 +139,10 @@ function obj:init()
             { id = "track", selectable = true, image = hs.image.imageFromPath(obj.iconPath ..  '/musical-note.png'):template(true)},
         }):canCustomize(true)
           :autosaves(true)
-          :selectedItem("track")
+          :selectedItem(hs.settings.get("spotify-search-and-play_selectedItem") or "track")
           :sizeMode("small")
           :setCallback(function(toolbar, chooser, identifier)
+                            hs.settings.set('spotify-search-and-play_selectedItem', identifier)
                             self.item_type_to_search = identifier
                             self:queryChangedCallback()
                        end)
